@@ -1,0 +1,72 @@
+.arena {
+    height: 900px;
+    width: 900px;
+    margin: auto;
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: 1fr;
+}
+
+.pokemon.opponent {
+    grid-column: 1 / 4;
+    grid-row: 1;
+}
+.pokemon.player {
+    grid-column: 1 / 4;
+    grid-row: 2;
+}
+.gui {
+    grid-column: 1 / 4;
+    grid-row: 3;
+    border: 2px solid black;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 32px;
+}
+
+.pokemon {
+    display: flex;
+}
+.state,.sprite {
+    flex: 1;
+}
+
+.sprite {
+    display: flex;
+}
+.sprite img {
+    margin: auto;
+    height: 100%;
+}
+
+.name {
+    margin-top: 10px;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 24px;
+}
+.name::after {
+    content: 'LVL' attr(data-level);
+    display: block;
+    font-size: 18px;
+}
+.pokemon.player .state {
+    align-self: end;
+}
+.state {
+    text-align: center;
+}
+
+progress {
+    background-color: green;
+    --progress-background: green;
+}
+
+progress[value]::-webkit-progress-value {
+    transition: width 1s;
+    background-color: var(--progress-background);
+}
+

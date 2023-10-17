@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <title>Pokemon remaster</title>
+</head>
+<body>
+    <div class="arena">
+        <div class="pokemon opponent">
+            <div class="state">
+                <div class="name" data-level="10">Adversaire</div>
+                <progress class="hp-bar" value="80" max="100"></progress>
+            </div>
+            <div class="sprite">
+                <img src="https://placehold.co/200x200" alt="Opponent">
+            </div>
+        </div>
+        <div class="pokemon player">
+            <div class="sprite">
+                <img src="https://placehold.co/200x200" alt="Player">
+            </div>
+            <div class="state">
+                <div class="name" data-level="10">Joueur</div>
+                <progress value="99" max="99"></progress>
+                <div class="hp">99/99</div>
+            </div>
+        </div>
+        <div class="gui">
+            Interface utilisateur
+        </div>
+    </div>
+    <script type="module" src="app.js"></script>
+</body>
+</html>
