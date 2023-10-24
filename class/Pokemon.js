@@ -1,5 +1,6 @@
 export default class Pokemon {
     constructor(data){
+        this.isOpponent = false;
         this._data = data;
         this.name = data.name;        
         this.level = 1;
@@ -35,5 +36,26 @@ export default class Pokemon {
         console.log(this.name+" attaque "+opponent.name);
         opponent.current_hp -= 10;
         console.log(opponent);
+        opponent.refreshDisplay();
+    }
+
+    refreshDisplay() {
+        const container = document.querySelector('.pokemon.'+ (this.isOpponent ? 'opponent' : 'player'))
+        // Gestion des points de vie
+        const progress = container.querySelector("progress");
+        progress.value = this.current_hp;
+        progress.max = this.stat.hp;
+        const hp_status = container.querySelector(".hp");
+        if (hp_status) {
+            hp_status.innerText = this.current_hp+"/"+this.stat.hp;
+        }
+        const hp_rate = Math.round(100*this.current_hp/this.stat.hp);
+        if (hp_rate < 25) {
+            progress.style.setProperty("--progress-background","red");
+        } else if (hp_rate <75) {
+            progress.style.setProperty("--progress-background","orange");
+        } else {
+            progress.style.setProperty("--progress-background","green");
+        }
     }
 }
